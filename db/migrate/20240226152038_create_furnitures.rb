@@ -8,7 +8,7 @@ class CreateFurnitures < ActiveRecord::Migration[7.1]
       t.boolean :availability
       t.string :category
       t.float :price
-      t.references :user, null: false, foreign_key: true
+      t.references :users, null: false, foreign_key: true
 
       t.timestamps
     end
