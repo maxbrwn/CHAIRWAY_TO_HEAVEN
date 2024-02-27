@@ -1,9 +1,54 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+User.destroy_all
+Furniture.destroy_all
+
+User.create(
+  email: "user1@example.com",
+  password: "123456",
+  first_name: "John",
+  last_name: "Doe"
+)
+User.create(
+  email: "user2@example.com",
+  password: "123456",
+  first_name: "Jane",
+  last_name: "Smith"
+)
+User.create!(
+  email: "user3@example.com",
+  password: "123456",
+  first_name: "Michael",
+  last_name: "Johnson"
+)
+
+Furniture.create(
+  title: "Comfy Sofa",
+  address: "123 Main St, Cityville",
+  description: "A cozy sofa perfect for lounging.",
+  condition: "Good condition, minor wear",
+  availability: true,
+  category: "Sofa",
+  price: 300.00,
+  user_id: User.first.id
+)
+
+Furniture.create(
+  title: "Vintage Coffee Table",
+  address: "456 Elm St, Townsville",
+  description: "Beautiful vintage coffee table with intricate design.",
+  condition: "Excellent condition",
+  availability: true,
+  category: "Coffee Table",
+  price: 150.00,
+  user_id: User.second.id
+)
+
+Furniture.create(
+  title: "Stylish Desk",
+  address: "789 Oak St, Villageton",
+  description: "Modern desk with plenty of storage.",
+  condition: "Like new",
+  availability: true,
+  category: "Desk",
+  price: 250.00,
+  user_id: User.third.id
+)
