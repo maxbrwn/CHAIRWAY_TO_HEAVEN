@@ -1,1 +1,22 @@
+<h1>Welcome
+<% if current_user.first_name %>
+  <%=current_user.first_name %>
+<% else%>
+  <%= "" %>
+<% end %>
+</h1>
 
+
+<div class="form-container">
+<%= simple_form_for @furniture do |f| %>
+  <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :condition, prompt: "Select one", collection: ["new", "used", "old", "ancient"] %>
+  <%= f.input :availability, as: :boolean, checked_value: 'positive', unchecked_value: 'negative', input_html: { checked: true } %>
+  <%= f.input :category, prompt: "Select one", collection: ["Sofa", "Chair", "Table", "Bed", "Desk", "Bookcase", "Wardrobe", "Outdoor Furniture", "Other"] %>
+  <%= f.input :price %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, class: "btn form-btn" %>
+<% end %>
+</div>
