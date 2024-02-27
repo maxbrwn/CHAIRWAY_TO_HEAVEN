@@ -1,0 +1,11 @@
+<div class="ms-4 mt-3">
+<h2><strong><%= @furniture.title%></strong></h2>
+<hr>
+<p><%=@furniture.address%></p>
+<p><%=@furniture.description%></p>
+<p><%=@furniture.condition%></p>
+<% if @furniture.availability == true%>
+<p>Available</p>
+<%end%>
+<p><strong><%=@furniture.price%> €</strong></p>
+</div>
