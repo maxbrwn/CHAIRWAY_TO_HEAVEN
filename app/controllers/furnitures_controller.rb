@@ -1,6 +1,6 @@
 class FurnituresController < ApplicationController
   def index
-    @furniteres = Furniture.all
+    @furnitures = Furniture.all
   end
 
   def show
