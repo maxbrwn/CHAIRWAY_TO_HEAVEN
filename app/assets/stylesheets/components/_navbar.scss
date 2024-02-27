@@ -1,12 +1,53 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $light-red;
+  box-shadow: 0px 1px 3px gray;
+  position: sticky;
+  top: 0;
+  height:100%;
+  background-image: linear-gradient(to right top, $dark-blue 0%, $light-red 100%);
+  z-index: 1000;
+
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  background: rgba(255, 255, 255, 0);
 }
+.nav-link {
+  color: white;
+}
+.nav-link:hover {
+  color: white;
+  box-shadow: 0px 1px 2px 0.1;
+  transition: all ease-in-out 250ms;
+}
+.nav-link::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  width: auto;
+  transition: all ease-in-out 250ms;
+}
+.nav-link:hover::before {
+  width: 45px;
+}
+
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+.dropdown-menu-end {
+  background: rgba(255, 255, 255, 0.1);
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  }
+}
+.dropdown-item {
+  &:hover {
+    color: $dark-blue;
+  }
 }
