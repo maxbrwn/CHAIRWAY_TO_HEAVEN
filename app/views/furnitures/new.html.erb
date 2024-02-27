@@ -1,1 +1,14 @@
+<h1>Create a new furniture here</h1>
 
+<div>
+<%= simple_form_for @furniture do |f| %>
+  <%= f.input :title %>
+  <%= f.input :address %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :condition, prompt: "Select one", collection: ["new", "used", "old", "ancient"] %>
+  <%= f.input :availability, as: :boolean, checked_value: 'positive', unchecked_value: 'negative', input_html: { checked: true } %>
+  <%= f.input :category, prompt: "Select one", collection: ["Sofa", "Chair", "Table", "Bed", "Desk", "Bookcase", "Wardrobe", "Outdoor Furniture", "Other"] %>
+  <%= f.input :price %>
+  <%= f.button :submit %>
+<% end %>
+</div>
