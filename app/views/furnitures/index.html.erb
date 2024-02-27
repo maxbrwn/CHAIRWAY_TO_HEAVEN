@@ -1,4 +1,9 @@
 <% @furnitures.each do |furniture|%>
 <ul>
-<li><%= furniture.name%></li>
+<li class="py-4"><%= furniture.title%> </li>
+<p><%= furniture.description%></p>
+<p><strong><%= furniture.price%> €</strong></p>
+<hr>
 </ul>
+<%end%>
+
