@@ -13,6 +13,21 @@
   color: white;
 };
 
+.login-btn {
+  color: white;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: ($mid-blue);
+  transition: background 0.3s ease;
+  border: 1px solid $mid-blue;
+}
+
+.login-btn:hover {
+  background: ($dark-blue);
+  color: white;
+};
+
 .form-container {
   width: 50%; /* Adjust the width as needed */
   margin: 0 auto; /* This centers the container */
