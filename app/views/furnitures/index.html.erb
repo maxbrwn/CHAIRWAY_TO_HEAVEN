@@ -1,10 +1,19 @@
-<% @furnitures.each do |furniture|%>
-<ul>
-  
-<li class="py-4"><%=link_to furniture.title, furniture_path(furniture)%> </li>
+Welcome to Chairway to heaven!
 
-<p><%= furniture.description%></p>
-<p><strong><%= furniture.price%> €</strong></p>
-<hr>
-</ul>
+
+
+<% @furnitures.each do |furniture|%>
+<div class="d-flex justify-content-center my-2">
+  <%=link_to furniture_path(furniture), class: "header-style" do%>
+<div class="card-product my-2">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+      <h2 class="fs-4 mt-4"><strong> <%=furniture.title%></strong></h2>
+        <hr>
+      <p class="pb-1 fs-5"><%= furniture.description%></p>
+      <p class="fs-4 text mb-2 pb-2"><strong><%= furniture.price%> €</strong></p>
+  </div>
+</div>
+<%end%>
+</div>
 <%end%>
