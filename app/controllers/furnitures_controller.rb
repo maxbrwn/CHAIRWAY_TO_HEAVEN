@@ -12,6 +12,7 @@ class FurnituresController < ApplicationController
   end
 
   def create
+
   end
 
 end

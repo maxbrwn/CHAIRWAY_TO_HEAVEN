@@ -1,9 +1,10 @@
 <% @furnitures.each do |furniture|%>
 <ul>
-<li class="py-4"><%= furniture.title%> </li>
+  
+<li class="py-4"><%=link_to furniture.title, furniture_path(furniture)%> </li>
+
 <p><%= furniture.description%></p>
 <p><strong><%= furniture.price%> €</strong></p>
 <hr>
 </ul>
 <%end%>
-
