@@ -1,0 +1,20 @@
+.form-btn {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: ($mid-blue);
+  transition: background 0.3s ease;
+  border: 1px solid $mid-blue;
+};
+
+.form-btn:hover {
+  background: ($dark-blue);
+  color: white;
+};
+
+.form-container {
+  width: 50%; /* Adjust the width as needed */
+  margin: 0 auto; /* This centers the container */
+  padding: 20px; /* Optional: Add padding for better visual appearance */
+}
