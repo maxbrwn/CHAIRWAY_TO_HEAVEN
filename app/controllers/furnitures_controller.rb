@@ -1,4 +1,6 @@
 class FurnituresController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @furnitures = Furniture.all
   end
@@ -25,6 +27,7 @@ class FurnituresController < ApplicationController
   private
 
   def params_furniture
-    params.require(:furniture).permit(:title, :address, :description, :condition, :availability, :category, :price)
+    params.require(:furniture).permit(:title, :address, :description, :condition, :availability,
+                                      :category, :price, :photo)
   end
 end
