@@ -1,19 +1,18 @@
-<div class="container">
-<h2><strong><%= @furniture.title%></strong></h2>
-
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @furniture.photo.attached? ? cl_image_path(@furniture.photo.key) : asset_path("sofa.jpg")%>)">
-</div>
-<div class="card-details" style="display: flex; justify-content: space-between;">
-  <h3><strong><%= @furniture.description %></strong></h3>
-  <p><%= @furniture.address %></p>
-  <p><%= @furniture.condition %></p>
-  <% if @furniture.availability == true %>
-    <p>Available</p>
-  <% end %>
-  <div style="display: flex; justify-content: space-between;">
-    <p style="margin-right: 10px;"><strong><%= @furniture.price %>€</strong></p>
-    <%= link_to "Book now", new_furniture_booking_path(@furniture), class: "btn btn-primary", style:"padding: 6px; margin-right: 30px; margin-bottom: 40px;"%>
-     <%# <button type="button" class="btn btn-primary" style="padding: 6px; margin-right: 30px; margin-bottom: 40px;">Book</button> %>
+<div class="container mb-4">
+  <h2 class="py-3 mt-2"><strong><%= @furniture.title%></strong></h2>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @furniture.photo.attached? ? cl_image_path(@furniture.photo.key) : asset_path("sofa.jpg")%>)">
+  </div>
+  <div class="card-details" style="display: flex; justify-content: space-between;">
+    <h3><strong><%= @furniture.description %></strong></h3>
+    <p><%= @furniture.address %></p>
+    <p><%= @furniture.condition %></p>
+    <% if @furniture.availability == true %>
+      <p>Available</p>
+    <% end %>
+    <div style="display: flex; justify-content: space-between;">
+      <p style="margin-right: 10px;"><strong><%= @furniture.price %>€</strong></p>
+      <%= link_to "Book now", new_furniture_booking_path(@furniture), class: "btn btn-primary", style:"padding: 6px; margin-right: 30px; margin-bottom: 40px;"%>
+      <%# <button type="button" class="btn btn-primary" style="padding: 6px; margin-right: 30px; margin-bottom: 40px;">Book</button> %>
+    </div>
   </div>
 </div>
-

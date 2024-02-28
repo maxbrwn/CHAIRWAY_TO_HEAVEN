@@ -1,10 +1,14 @@
-<h1>Welcome
-<% if current_user.first_name %>
-  <%=current_user.first_name %>
-<% else%>
-  <%= "" %>
-<% end %>
-</h1>
+<div class="d-flex flex-column align-items-center">
+  <h1 class="mt-4">Hello
+  <% if current_user.first_name %>
+    <%=current_user.first_name %>
+  <% else%>
+    <%= "" %>
+  <% end %>
+  </h1>
+  <br>
+  <h2>Create your furniture offer</h2>
+</div>
 
 
 <div class="form-container">
