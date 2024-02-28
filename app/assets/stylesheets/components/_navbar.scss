@@ -2,11 +2,9 @@
   justify-content: space-between;
   background: $light-red;
   box-shadow: 0px 1px 3px gray;
-  position: sticky;
   top: 0;
   height:100%;
   background-image: linear-gradient(to right top, $dark-blue 0%, $light-red 100%);
-  z-index: 1000;
 
 }
 
@@ -41,7 +39,7 @@
   width: 40px;
 }
 .dropdown-menu-end {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.544);
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   }
