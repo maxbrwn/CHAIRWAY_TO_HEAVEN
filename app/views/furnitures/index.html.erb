@@ -10,7 +10,9 @@
   <div class="d-flex justify-content-center my-2">
     <%=link_to furniture_path(furniture), class: "header-style" do%>
       <div class="card-product my-2">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <% if furniture.photo.attached? %>
+          <%= cl_image_tag(furniture.photo.key, width: 400, height: 300, crop: :fill) %>
+        <% end %>
         <div class="card-product-infos">
             <h2 class="fs-4 mt-4"><strong> <%=furniture.title%></strong></h2>
               <hr>
