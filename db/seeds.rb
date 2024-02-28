@@ -1,5 +1,6 @@
 User.destroy_all
 Furniture.destroy_all
+Booking.destroy_all
 
 User.create(
   email: "user1@example.com",
@@ -51,4 +52,32 @@ Furniture.create(
   category: "Desk",
   price: 250.00,
   user_id: User.third.id
+)
+
+# db/seeds/bookings.rb
+Booking.create(
+  confirmation: true,
+  comment: 'I really like this furniture!!',
+  renting_start: Date.today,
+  renting_end: Date.today + 7.days,
+  user_id: User.first.id,
+  furniture_id: Furniture.first.id
+)
+
+Booking.create(
+  confirmation: false,
+  comment: 'I need this furniture',
+  renting_start: Date.today + 3.days,
+  renting_end: Date.today + 10.days,
+  user_id: User.second.id,
+  furniture_id: Furniture.second.id
+)
+
+Booking.create(
+  confirmation: true,
+  comment: 'Please give me this.',
+  renting_start: Date.today - 5.days,
+  renting_end: Date.today + 2.days,
+  user_id: User.third.id,
+  furniture_id: Furniture.third.id
 )
