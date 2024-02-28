@@ -2,19 +2,21 @@
   background: $mid-blue;
   display: flex;
   align-items: center;
-  justify-content: center;
   padding: 20px 30px;
-  color: $light-red;
   opacity: 1;
   box-shadow: 0px 1px 3px gray;
+  bottom: 0;
+  margin-top: auto;
 }
 .footer-links {
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 .footer-links a {
-  color: $light-red;
   text-decoration: none;
+  color: $light-red;
   font-size: 24px;
   padding: 0px 10px;
 }
@@ -24,7 +26,22 @@
 .footer .fa-heart {
   color: #D23333;
 }
+
 .footer-copyright {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 0px 10px;
+}
+
+.footer-copyright a {
   text-decoration: none;
   color: $light-red;
+  text-align: center;
+  padding: 0px 120px;
+}
+
+.footer-copyright a:hover {
+  color: $dark-blue;
 }
