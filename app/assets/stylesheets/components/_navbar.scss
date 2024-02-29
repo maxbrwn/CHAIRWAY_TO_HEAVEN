@@ -14,11 +14,16 @@
 }
 .nav-link {
   color: white;
+  font-family: $headers-font;
+  font-weight: bold;
+  width: 100%;
+  transition: all ease-in-out 250ms;
+  opacity: 1;
 }
 .nav-link:hover {
   color: white;
-  box-shadow: 0px 1px 2px 0.1;
-  transition: all ease-in-out 250ms;
+  text-decoration: none;
+  opacity: 0.9;
 }
 .nav-link::before {
   content: '';
@@ -29,6 +34,7 @@
   top: 0;
   width: auto;
   transition: all ease-in-out 250ms;
+  width: 0%;
 }
 .nav-link:hover::before {
   width: 45px;
@@ -40,6 +46,8 @@
 }
 .dropdown-menu-end {
   background: rgba(255, 255, 255, 0.544);
+  border-radius: 5px;
+  font-family: $headers-font;
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   }

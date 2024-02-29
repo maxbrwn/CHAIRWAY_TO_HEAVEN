@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 140px 0;
 }
 
 .banner h1 {
@@ -17,4 +17,22 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.button{
+  background-color: $light-red;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  margin: 28px 5px;
+  cursor: pointer;
+  opacity: 1;
+  text-decoration: none;
+  transition: 25ms ease-in-out;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: $headers-font;
+  &:hover {
+    opacity: 0.9;
+  }
 }
