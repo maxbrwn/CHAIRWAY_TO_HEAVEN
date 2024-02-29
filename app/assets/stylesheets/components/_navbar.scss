@@ -14,6 +14,8 @@
 }
 .nav-link {
   color: white;
+  font-family: $headers-font;
+  font-weight: bold;
 }
 .nav-link:hover {
   color: white;
@@ -40,6 +42,8 @@
 }
 .dropdown-menu-end {
   background: rgba(255, 255, 255, 0.544);
+  border-radius: 5px;
+  font-family: $headers-font;
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   }
