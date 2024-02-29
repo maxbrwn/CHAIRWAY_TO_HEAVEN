@@ -17,7 +17,7 @@
             <h2 class="fs-4 mt-4"><strong> <%=furniture.title%></strong></h2>
               <hr>
             <p class="pb-1 fs-5"><%= furniture.description%></p>
-            <p class="fs-4 text mb-2 pb-2"><strong><%= furniture.price%> €</strong></p>
+            <p class="fs-4 text mb-2 pb-2"><strong><%= furniture.price.to_i%> €</strong></p>
         </div>
       </div>
     <%end%>
