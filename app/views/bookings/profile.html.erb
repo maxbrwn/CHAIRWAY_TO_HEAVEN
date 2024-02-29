@@ -1,16 +1,24 @@
 <h1>Find your bookings below</h1>
-<% current_user.furnitures.each do |furniture| %>
+
+<% current_user.bookings.each do |booking| %>
 <div>
-  <ul>
-    <li>
-      <%= furniture.title %>
-      <% booking = Booking.find_by(furniture: furniture) %>
-      <hr>
-      <%= booking.comment %>
-      <br>
-      <%# <%= total_price %>
-    </li>
-  </ul>
+  
+  
+  <hr>
+      <h3><%= booking.furniture.title %></h3>
+      <p>Message: <%= booking.comment %> </p>
+      <p>Starting day: <%=booking.renting_start%></p>
+      <p>Ending day: <%=booking.renting_end%></p>
+      <%duration = (booking.renting_end - booking.renting_start).to_i + 1%>
+      <%booking%>
+      <%if duration == 1%>
+      <p>Duration: <%=duration%> day</p>
+      <%else%>
+      <p>Duration: <%=duration%> days</p>
+      <%end%>
+      <p>Total price: <%= (duration * booking.furniture.price).to_i%>€</p>
+
+
 </div>
 <% end %>
 
