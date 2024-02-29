@@ -1,9 +1,9 @@
-<h1>Find your bookings below</h1>
+<h1 id="my-bookings-section">Find your bookings below</h1>
 
 <% current_user.bookings.each do |booking| %>
 <div>
-  
-  
+
+
   <hr>
       <h3><%= booking.furniture.title %></h3>
       <p>Message: <%= booking.comment %> </p>
@@ -22,7 +22,7 @@
 </div>
 <% end %>
 
-<h2>Booking Requests for Your Furnitures</h2>
+<h2 id="booking-request">Booking Requests for Your Furnitures</h2>
 <% @bookings_for_user_furnitures.each do |booking| %>
   <div class= "container">
     <ul>
