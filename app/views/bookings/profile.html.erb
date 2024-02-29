@@ -1,5 +1,4 @@
 <h1>Find your bookings below</h1>
-
 <% current_user.furnitures.each do |furniture| %>
 <div>
   <ul>
@@ -13,4 +12,53 @@
     </li>
   </ul>
 </div>
+<% end %>
+
+<h2>Booking Requests for Your Furnitures</h2>
+<% @bookings_for_user_furnitures.each do |booking| %>
+  <div class= "container">
+    <ul>
+      <div class= "d-flex justify-content-start">
+        <div class= "column">
+          <% if booking.status == "pending" %>
+            <div class="card">
+              <h3><%= booking.furniture.title %></h3>
+              <hr>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Status: <%= booking.status %></p>
+              <p> Start of booking: <%= booking.renting_start %></p>
+              <p> End of Booking: <%= booking.renting_end %></p>
+              <p> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <div class = "d-flex" >
+                <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "accept-button"%>
+                <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "reject-button" %>
+              </div>
+            </div>
+          <% elsif booking.status == "accepted" %>
+            <div class="card">
+             <h3><%= booking.furniture.title %></h3>
+             <hr>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Status: <%= booking.status %></p>
+              <p> Start of booking: <%= booking.renting_start %></p>
+              <p> End of Booking: <%= booking.renting_end %></p>
+              <p> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <hr>
+            </div>
+          <% else %>
+            <div class="card">
+             <h3><%= booking.furniture.title %></h3>
+             <hr>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Status: <%= booking.status %></p>
+              <p> Start of booking: <%= booking.renting_start %></p>
+              <p> End of Booking: <%= booking.renting_end %></p>
+              <p> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <hr>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </ul>
+  </div>
 <% end %>
