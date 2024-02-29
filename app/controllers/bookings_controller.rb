@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_furniture, only: [:new, :create]
 
-  def new
-    @booking = Booking.new
-  end
-
   def create
     @booking = Booking.new(booking_params)
     @booking.furniture_id = @furniture.id
@@ -12,16 +8,14 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to profile_path(current_user)
     else
-      render :new, status: :unprocessable_entity
+      render "furnitures/show", status: :unprocessable_entity
     end
   end
 
   def profile
     @bookings = Booking.all
-    # @booking = Booking.find(params[:id])
     @furnitures = Furniture.all
     @user = current_user
-    # @total_price = (@booking.renting_end - @booking.renting_start).to_i + 1
   end
 
   private
