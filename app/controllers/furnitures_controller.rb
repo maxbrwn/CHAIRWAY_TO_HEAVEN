@@ -7,6 +7,7 @@ class FurnituresController < ApplicationController
 
   def show
     @furniture = Furniture.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
