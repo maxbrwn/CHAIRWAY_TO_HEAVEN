@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   resources :furnitures, except: [:index] do
     resources :bookings, only: [:create, :new]
   end
-
+  resources :bookings do
+    member do
+      patch :accept
+      patch :reject
+    end
+  end
   get "/profile", to: "bookings#profile"
 
 end

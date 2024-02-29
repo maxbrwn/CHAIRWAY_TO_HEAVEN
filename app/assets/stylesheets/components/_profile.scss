@@ -1,0 +1,29 @@
+.accept-button {
+  background-color: #4CAF50;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 5px;
+  border: black 1px solid;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.reject-button {
+  background-color: #f44336;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 5px;
+  border: black 1px solid;
+  cursor: pointer;
+  opacity: 0.9;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  margin: 8px 5px;
+  padding: 10px 20px;
+  background-color: white;
+  width: 500px;
+}
