@@ -57,11 +57,20 @@
         <p><i class="fa-solid fa-clock"></i> Duration: <%=duration%> days</p>
         <%end%>
         <p><i class="fa-solid fa-money-bill-wave"></i> Total price: <%= (duration * booking.furniture.price).to_i%>€</p>
+        <% if booking.status == "pending" %>
+        <p><i class="fa-solid fa-circle-question"></i> Status: <%= booking.status %></p>
+        <% elsif booking.status == "accepted" %>
+        <p><i class="fa-solid fa-square-check"></i> Status: <%= booking.status %></p>
+        <% else %>
+        <p><i class="fa-solid fa-circle-xmark"></i> Status: <%= booking.status %></p>
+        <% end %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
+
+
 
 
 
