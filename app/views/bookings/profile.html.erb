@@ -53,7 +53,7 @@
       <% if booking.furniture.photo.attached? %>
         <%= cl_image_tag(booking.furniture.photo.key, alt:booking.furniture.title, width: 330, height: 270, crop: :fill) %>
       <% else %>
-       <p>No photo available</p>
+        <p>No photo available</p>
       <% end %>
     </div>
 
