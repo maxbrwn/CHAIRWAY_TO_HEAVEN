@@ -1,8 +1,8 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://preview.redd.it/chairway-to-heaven-v0-s1uosycpl7db1.jpg?width=1024&format=pjpg&auto=webp&s=b65c4db2b5e8a73b6b3a99ffd34748d9ce504b3e);">
   <div class="container">
-    <h1>Chairway to <strong>heaven</strong>!</h1>
-    <p>Furniture to feel like you sit next to angels</p>
-    <%= link_to "Add your own furniture", new_furniture_path, class: "btn btn-primary"%>
+    <h1 class= "fs-1">Chairway to <strong>heaven</strong>!</h1>
+    <p class="fs-3 ">Gift your your old inventury <br> a second life!</p>
+    <%= link_to "Add your own furniture", new_furniture_path, class: "button" %>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
             <h2 class="fs-4 mt-4"><strong> <%=furniture.title%></strong></h2>
               <hr>
             <p class="pb-1 fs-5"><%= furniture.description%></p>
-            <p class="fs-4 text mb-2 pb-2"><strong><%= furniture.price%> €</strong></p>
+            <p class="fs-4 text mb-2 pb-2"><strong><%= furniture.price.to_i%>€ per day</strong></p>
         </div>
       </div>
     <%end%>
