@@ -21,9 +21,10 @@
 
 .request-container {
   height: 646px;
-  width: 330px;
+  width: 390px;
   background-color: white;
-  margin-bottom: 50px;
+  margin: 25px 0px;
+  border-radius: 4px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -33,9 +34,7 @@
 }
 
 .request-image {
-  // display: flex;
-  // justify-content: center;
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .request-card {
@@ -49,4 +48,5 @@
   padding: 10px 20px;
   background-color: white;
   width: 330px;
+  margin-left: 20px;
 }

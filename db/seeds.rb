@@ -56,7 +56,7 @@ Furniture.create(
 
 # db/seeds/bookings.rb
 Booking.create(
-  confirmation: true,
+  status: "pending",
   comment: 'I really like this furniture!!',
   renting_start: Date.today,
   renting_end: Date.today + 7.days,
@@ -65,7 +65,7 @@ Booking.create(
 )
 
 Booking.create(
-  confirmation: false,
+  status: "pending",
   comment: 'I need this furniture',
   renting_start: Date.today + 3.days,
   renting_end: Date.today + 10.days,
@@ -74,7 +74,7 @@ Booking.create(
 )
 
 Booking.create(
-  confirmation: true,
+  status: "pending",
   comment: 'Please give me this.',
   renting_start: Date.today - 5.days,
   renting_end: Date.today + 2.days,
