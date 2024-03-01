@@ -6,9 +6,16 @@
       <%= link_to "Add your own furniture", new_furniture_path, class: "button" %>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
-    <%= form_with url: root_path, method: :get, class="d-flex" do  %>
+  <div id="search-box" >
+    <div class="form-index">
+    <%= form_with url: root_path, method: :get, class:"d-flex flex-column w-100" do  %>
+    <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find your furniture..."
+        %>
+      <%= submit_tag "Search", name: "", class: "button-index" %>
+    <% end %>
     </div>
   </div>
   <% @furnitures.each do |furniture|%>

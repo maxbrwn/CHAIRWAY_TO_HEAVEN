@@ -2,7 +2,11 @@ class FurnituresController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @furnitures = Furniture.all
+    if params[:query].present?
+      @furnitures = Furniture.search_details(params[:query])
+    else
+      @furnitures = Furniture.all
+    end
   end
 
   def show

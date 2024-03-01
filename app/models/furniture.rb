@@ -4,5 +4,9 @@ class Furniture < ApplicationRecord
   has_many :users, through: :bookings
   has_one_attached :photo
   include PgSearch::Model
-  pg_search_scope :global_search,
+  pg_search_scope :search_details,
+    against: [:title, :address, :description, :condition, :category],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
