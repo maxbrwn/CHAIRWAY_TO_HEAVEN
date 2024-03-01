@@ -1,5 +1,6 @@
+
 <div class="container my-3">
-  <div class="profile-card d-flex justify-content-start flex-row align-items-center">
+  <div class="profile-card d-flex justify-content-start flex-row align-items-center mb-4">
     <div class="d-flex flex-column align-items-center border-end p-3 pe-5">
       <% if current_user.photo.attached? %>
               <%= cl_image_tag(current_user.photo.key,
@@ -23,35 +24,59 @@
       <a href="" class="text-black-50"><p class="fs-5 ms-5 ps-3">View john´s review (23)<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p></a>
     </div>
   </div>
-</div>
-<p>hello</p>
-<h1 id="my-bookings-section">Find your bookings below</h1>
-<% current_user.bookings.each do |booking| %>
-<div>
-  <hr>
-    <h3><%= booking.furniture.title %></h3>
-    <p>Message: <%= booking.comment %> </p>
-    <p>Starting day: <%=booking.renting_start%></p>
-    <p>Ending day: <%=booking.renting_end%></p>
-    <%duration = (booking.renting_end - booking.renting_start).to_i + 1%>
-    <%booking%>
-    <%if duration == 1%>
-    <p>Duration: <%=duration%> day</p>
-    <%else%>
-    <p>Duration: <%=duration%> days</p>
-    <%end%>
-    <p>Total price: <%= (duration * booking.furniture.price).to_i%>€</p>
-</div>
-<% end %>
 
-<h2>Booking Requests for Your Furnitures</h2>
 
-<% @bookings_for_user_furnitures.each do |booking| %>
-<div class="d-flex d-row justify-content-evenly">
+<hr>
+
+<h1 id="my-bookings-section" class=" text-center">Find your bookings below</h1>
+
+<hr>
+
+<div class="d-flex flex-row justify-content-between w-100 flex-wrap">
+  <% current_user.bookings.each do |booking| %>
   <div class= "request-container">
     <div class="request-image">
       <% if booking.furniture.photo.attached? %>
-        <%= cl_image_tag(booking.furniture.photo.key, alt:booking.furniture.title, width: 330, height: 270, crop: :fill) %>
+        <%= cl_image_tag(booking.furniture.photo.key, alt:booking.furniture.title, width: 390, height: 270, crop: :fill) %>
+      <% else %>
+        <p>No photo available</p>
+      <% end %>
+    </div>
+    <div>
+      <div class="request-card">
+        <h4 class="mt-2"><%= booking.furniture.title %></h4>
+        <hr>
+        <p><i class="fa-solid fa-comment"></i> <%= booking.comment %> </p>
+        <p><i class="fa-regular fa-calendar-check"></i> Starting day: <%=booking.renting_start%></p>
+        <p><i class="fa-regular fa-calendar-check"></i> Ending day: <%=booking.renting_end%></p>
+        <%duration = (booking.renting_end - booking.renting_start).to_i + 1%>
+        <%booking%>
+        <%if duration == 1%>
+        <p><i class="fa-solid fa-clock"></i> Duration: <%=duration%> day</p>
+        <%else%>
+        <p><i class="fa-solid fa-clock"></i> Duration: <%=duration%> days</p>
+        <%end%>
+        <p><i class="fa-solid fa-money-bill-wave"></i> Total price: <%= (duration * booking.furniture.price).to_i%>€</p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+
+
+<hr>
+<h1 class=" text-center">Booking Requests for Your Furnitures</h1>
+<hr>
+
+<div class="d-flex flex-row justify-content-between flex-wrap">
+  <% @bookings_for_user_furnitures.each do |booking| %>
+  <div class= "request-container">
+    <div class="request-image">
+      <% if booking.furniture.photo.attached? %>
+        <%= cl_image_tag(booking.furniture.photo.key, alt:booking.furniture.title, style:"border-radius: 4px", width: 390, height: 270, crop: :fill) %>
       <% else %>
         <p>No photo available</p>
       <% end %>
@@ -59,22 +84,24 @@
 
         <% if booking.status == "pending" %>
           <div class="request-card">
-            <h4><%= booking.furniture.title %></h4>
+            <h4 class="mt-2"><%= booking.furniture.title %></h4>
             <hr>
-            <p><i class="fa-solid fa-comment"></i> Comment: <%= booking.comment %></p>
-            <p>Status: <%= booking.status %></p>
+            <p><i class="fa-solid fa-comment"></i>  <%= booking.comment %></p>
+            <p><i class="fa-solid fa-circle-question"></i> Status: <%= booking.status %></p>
             <p><i class="fa-regular fa-calendar-check"></i> Start of booking: <%= booking.renting_start %></p>
             <p><i class="fa-regular fa-calendar-check"></i> End of Booking: <%= booking.renting_end %></p>
             <p><i class="fa-solid fa-user"></i> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
-              <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "accept-button"%>
-              <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "reject-button" %>
+            <div class="d-flex flex-row justify-content-evenly align-items-center mt-2">
+              <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "accept-button prevent"%>
+              <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "reject-button prevent" %>
+              </div>
           </div>
           <% elsif booking.status == "accepted" %>
             <div class="request-card">
-              <h4><%= booking.furniture.title %></h4>
+              <h4 class="mt-2"><%= booking.furniture.title %></h4>
               <hr>
               <p><i class="fa-solid fa-comment"></i> Comment: <%= booking.comment %></p>
-              <p>Status: <%= booking.status %></p>
+              <p><i class="fa-solid fa-square-check"></i> Status: <%= booking.status %></p>
               <p><i class="fa-regular fa-calendar-check"></i> Start of booking: <%= booking.renting_start %></p>
               <p><i class="fa-regular fa-calendar-check"></i> End of Booking: <%= booking.renting_end %></p>
               <p><i class="fa-solid fa-user"></i> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
@@ -82,10 +109,10 @@
             </div>
           <% else %>
             <div class="request-card">
-              <h4><%= booking.furniture.title %></h4>
+              <h4 class="mt-2"><%= booking.furniture.title %></h4>
               <hr>
               <p><i class="fa-solid fa-comment"></i> Comment: <%= booking.comment %></p>
-              <p>Status: <%= booking.status %></p>
+              <p><i class="fa-solid fa-circle-xmark"></i> Status: <%= booking.status %></p>
               <p><i class="fa-regular fa-calendar-check"></i> Start of booking: <%= booking.renting_start %></p>
               <p><i class="fa-regular fa-calendar-check"></i> End of Booking: <%= booking.renting_end %></p>
               <p><i class="fa-solid fa-user"></i> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
@@ -93,5 +120,6 @@
             </div>
           <% end %>
     </div>
+    <% end %>
 </div>
-<% end %>
+</div>

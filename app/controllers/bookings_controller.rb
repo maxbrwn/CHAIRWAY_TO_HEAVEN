@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     @booking.furniture_id = @furniture.id
     @booking.user_id = current_user.id
     if @booking.save
-      redirect_to profile_path(current_user)
+      redirect_to profile_path
     else
       render "furnitures/show", status: :unprocessable_entity
     end
