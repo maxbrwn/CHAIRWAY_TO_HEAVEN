@@ -22,20 +22,14 @@
       <p class="ms-5 fs-4 p-3 me-2">Hi my name is Jon Doe! I love furniture, so I often hang out on this site to check out new offers and rent some of my own furniture to other people. Feel free to contact me! I am happy to chat with you :)</p>
       <a href="" class="text-black-50"><p class="fs-5 ms-5 ps-3">View john´s review (23)<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p></a>
     </div>
-
   </div>
-
 </div>
 
-
-
 <h2>Find your bookings below</h2>
-
+<h1 id="my-bookings-section">Find your bookings below</h1>
 <% current_user.bookings.each do |booking| %>
 <div>
   <hr>
-
-
       <h3><%= booking.furniture.title %></h3>
       <p>Message: <%= booking.comment %> </p>
       <p>Starting day: <%=booking.renting_start%></p>
@@ -51,4 +45,53 @@
 
 
 </div>
+<% end %>
+
+<h2 id="booking-request">Booking Requests for Your Furnitures</h2>
+<% @bookings_for_user_furnitures.each do |booking| %>
+  <div class= "container">
+    <ul>
+      <div class= "d-flex justify-content-start">
+        <div class= "column">
+          <% if booking.status == "pending" %>
+            <div class="card">
+              <h3><%= booking.furniture.title %></h3>
+              <hr>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Status: <%= booking.status %></p>
+              <p> Start of booking: <%= booking.renting_start %></p>
+              <p> End of Booking: <%= booking.renting_end %></p>
+              <p> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <div class = "d-flex" >
+                <%= button_to "Accept", accept_booking_path(booking), method: :patch, class: "accept-button"%>
+                <%= button_to "Reject", reject_booking_path(booking), method: :patch, class: "reject-button" %>
+              </div>
+            </div>
+          <% elsif booking.status == "accepted" %>
+            <div class="card">
+             <h3><%= booking.furniture.title %></h3>
+             <hr>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Status: <%= booking.status %></p>
+              <p> Start of booking: <%= booking.renting_start %></p>
+              <p> End of Booking: <%= booking.renting_end %></p>
+              <p> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <hr>
+            </div>
+          <% else %>
+            <div class="card">
+             <h3><%= booking.furniture.title %></h3>
+             <hr>
+              <p>Comment: <%= booking.comment %></p>
+              <p>Status: <%= booking.status %></p>
+              <p> Start of booking: <%= booking.renting_start %></p>
+              <p> End of Booking: <%= booking.renting_end %></p>
+              <p> Requested by: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+              <hr>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </ul>
+  </div>
 <% end %>
